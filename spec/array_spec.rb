@@ -18,7 +18,7 @@ describe Array do
   end
   
   it "should allow removing all blank values recursively" do
-    a = [1, 2, [" Kan", {}], nil, {:a => "", :b => {}}, ["garoos", "  "]]
+    a = [1, 2, [" Kan", {}], nil, {:a => "", :b => {}}, ["garoos", " "]]
     a.recursive_compact_blank!
     a.join.should == "12 Kangaroos"
   end
@@ -39,7 +39,7 @@ describe Array do
     result = []
     array.recursively do |e|
       result << e unless e.is_a?(Array)
-    end 
+    end
     result.should eql [1,2,3,4,5,6,7,8,9,10]
   end
   

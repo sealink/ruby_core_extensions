@@ -12,21 +12,21 @@ Gem::Specification.new do |s|
   ## Leave these as is they will be modified for you by the rake gemspec task.
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
-  s.name              = 'ruby_core_extensions'
-  s.version           = '0.0.1'
-  s.date              = '2012-04-29'
+  s.name = 'ruby_core_extensions'
+  s.version = '0.0.1'
+  s.date = '2012-04-29'
   s.rubyforge_project = 'ruby_core_extensions'
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
-  s.summary     = "Set of extensions to core ruby libraries used by TravelLink Technology."
+  s.summary = "Set of extensions to core ruby libraries used by TravelLink Technology."
   s.description = "These are extensions from core ruby classes."
 
   ## List the primary authors. If there are a bunch of authors, it's probably
   ## better to set the email to an email list or something. If you don't have
   ## a custom homepage, consider using your GitHub URL or the like.
-  s.authors  = ["Michael Noack", "Alessandro Berardi"]
-  s.email    = 'development@travellink.com.au'
+  s.authors = ["Michael Noack", "Alessandro Berardi"]
+  s.email = 'development@travellink.com.au'
   s.homepage = 'http://github.com/sealink/ruby_core_extensions'
 
   ## This gets added to the $LOAD_PATH so that 'lib/NAME.rb' can be required as
@@ -59,42 +59,42 @@ Gem::Specification.new do |s|
   ## THE MANIFEST COMMENTS, they are used as delimiters by the task.
   # = MANIFEST =
   s.files = %w[
-    Gemfile
-    LICENSE
-    README.md
-    Rakefile
-    lib/ruby_core_extensions.rb
-    lib/ruby_core_extensions/array.rb
-    lib/ruby_core_extensions/class.rb
-    lib/ruby_core_extensions/compact.rb
-    lib/ruby_core_extensions/compact/array.rb
-    lib/ruby_core_extensions/compact/hash.rb
-    lib/ruby_core_extensions/enumerable.rb
-    lib/ruby_core_extensions/file.rb
-    lib/ruby_core_extensions/kernel.rb
-    lib/ruby_core_extensions/numeric.rb
-    lib/ruby_core_extensions/object.rb
-    lib/ruby_core_extensions/recursive.rb
-    lib/ruby_core_extensions/recursive/array.rb
-    lib/ruby_core_extensions/recursive/big_decimal.rb
-    lib/ruby_core_extensions/recursive/date.rb
-    lib/ruby_core_extensions/recursive/date_time.rb
-    lib/ruby_core_extensions/recursive/fixnum.rb
-    lib/ruby_core_extensions/recursive/hash.rb
-    lib/ruby_core_extensions/recursive/object.rb
-    lib/ruby_core_extensions/recursive/time.rb
-    lib/ruby_core_extensions/string.rb
-    ruby_core_extensions.gemspec
-    spec/array_spec.rb
-    spec/class_spec.rb
-    spec/enumerable_spec.rb
-    spec/filename_spec.rb
-    spec/hash_spec.rb
-    spec/numeric_spec.rb
-    spec/object_spec.rb
-    spec/spec_helper.rb
-    spec/string_spec.rb
-  ]
+Gemfile
+LICENSE
+README.md
+Rakefile
+lib/ruby_core_extensions.rb
+lib/ruby_core_extensions/array.rb
+lib/ruby_core_extensions/class.rb
+lib/ruby_core_extensions/compact.rb
+lib/ruby_core_extensions/compact/array.rb
+lib/ruby_core_extensions/compact/hash.rb
+lib/ruby_core_extensions/enumerable.rb
+lib/ruby_core_extensions/file.rb
+lib/ruby_core_extensions/kernel.rb
+lib/ruby_core_extensions/numeric.rb
+lib/ruby_core_extensions/object.rb
+lib/ruby_core_extensions/recursive.rb
+lib/ruby_core_extensions/recursive/array.rb
+lib/ruby_core_extensions/recursive/big_decimal.rb
+lib/ruby_core_extensions/recursive/date.rb
+lib/ruby_core_extensions/recursive/date_time.rb
+lib/ruby_core_extensions/recursive/fixnum.rb
+lib/ruby_core_extensions/recursive/hash.rb
+lib/ruby_core_extensions/recursive/object.rb
+lib/ruby_core_extensions/recursive/time.rb
+lib/ruby_core_extensions/string.rb
+ruby_core_extensions.gemspec
+spec/array_spec.rb
+spec/class_spec.rb
+spec/enumerable_spec.rb
+spec/filename_spec.rb
+spec/hash_spec.rb
+spec/numeric_spec.rb
+spec/object_spec.rb
+spec/spec_helper.rb
+spec/string_spec.rb
+]
   # = MANIFEST =
 
   ## Test files will be grabbed from the file list. Make sure the path glob

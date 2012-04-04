@@ -16,4 +16,3 @@ module RubyCoreExtensions
   require 'ruby_core_extensions/compact'
   require 'ruby_core_extensions/recursive'
 end
-
