@@ -13,7 +13,7 @@ describe Range, "overlapping with other ranges" do
   
     # 1-------10
     #         10-------20
-    (1...10).overlaps?(10..20).should be_true
+    (1..10).overlaps?(10..20).should be_true
 
     # 1-----------15
     #         10-------20

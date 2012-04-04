@@ -53,6 +53,7 @@ class Array
     end
   end
 
+  # Key should be unique, or latest element with that key will override previous ones.
   def hash_by(key, method = nil, &block)
     self.inject({}) do |h, element|
       h[element.send(key)] = if block_given?
