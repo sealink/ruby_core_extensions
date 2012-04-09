@@ -9,20 +9,9 @@ class String
     Text::Metaphone.metaphone(self)
   end
 
-  def separate_numbers_and_letters(separator = ' ')
-    self.gsub(/[a-z][0-9]|[0-9][a-z]/i){ |s| s[0].chr + separator + s[1].chr }
-  end
-
-  def to_alphanumeric
-    scan(/[a-zA-Z0-9]/).join
-  end
-  
-  def or_default(value)
-    if self.empty?
-      value
-    else
-      self
-    end
+  # Solr requires numbers and letters to be separated
+  def separate_numbers_and_letters
+    gsub(/[a-z][0-9]|[0-9][a-z]/i){ |s| s[0].chr + ' ' + s[1].chr }
   end
 
   # convert newlines to breaks
@@ -51,50 +40,52 @@ class String
   end
 
   # Squash will reduce words from the end of the string to 3 characters until it
-  # fits within the limit or until each words is squashed to 3 characters long
+  # fits within the limit, shrinking all words evenly.
+  # Where not all words can be shrunk evenly, the last words will be reduced by 1
+  # Until within the limit
   # e.g.
-  # "Adelaide University".squash(10)
-  # => "Adelai Uni"
   # "Adelaide University".squash(30)
-  # "Adelaide University"
-  # "Adelaide University".squash(3)
-  # "Ade Uni"
+  # => "Adelaide University"
+  # "Adelaide University".squash(10)
+  # => "Adela Univ"
   # "Adelaide University".squash(7)
-  # "Ade Uni"
+  # => "Ade Uni"
+  # "Adelaide University".squash(3)
+  # => "AU"
+  # "Adelaide University".squash(2)
+  # => "AU"
+  # "Adelaide University".squash(1)
+  # => "A"
   def squash(limit)
-    if size > limit
-      words = split(' ')
-      if words.size * 1 >= limit
-        return words[0..(limit - 1)].map(&:first).join('')
-      elsif words.size * 2 > limit
-        chop_size = 1
-      elsif words.size * 3 > limit
-        chop_size = 2
-      else
-        chop_size = 3
-      end
-      index = words.size - 1
-      cur_size = words.join(' ').size
-      while index >= 0 && cur_size > limit
-        letters_to_remove = cur_size - limit
-        if letters_to_remove >= words[index].size - chop_size
-          words[index] = words[index][0..(chop_size - 1)]
-        else
-          words[index] = words[index][0..(words[index].size-letters_to_remove-1)]
-        end
+    return self if size <= limit
 
-        cur_size = words.join(' ').size
-        index -= 1
-      end
-      final = words.join(' ')
-      if final.size > limit
-        final[0..(limit - 1)]
+    words = split(' ')
+
+    # Return first letter of <limit> words
+    return words.first(limit).map{|w| w.chars.first}.join if (words.size * 2 - 1) >= limit
+
+    spaces = words.size - 1
+    word_char_min = (limit - spaces) / words.size
+    word_char_max = word_char_min + 1
+
+    words = words.map{|word| word[0..(word_char_max - 1)]}
+
+    words.reverse.each.with_index do |word, index|
+      letters_to_remove = words.join(' ').size - limit
+
+      letters_to_keep = if (last_case = (letters_to_remove <= (word.size - word_char_min)))
+        word.size - letters_to_remove # Removing final characters
       else
-        final
+        word_char_min
       end
-    else
-      self
+
+      # Replace word
+      words[words.size -  index - 1] = word[0..(letters_to_keep - 1)]
+
+      break if last_case
     end
+
+    words.join(' ')
   end
   
   

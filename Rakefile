@@ -58,7 +58,6 @@ desc "Generate SimpleCov test coverage and open in your browser"
 task :coverage do
   ENV['COVERAGE'] = 'true'
   Rake::Task['spec'].invoke
-  sh "firefox coverage/index.html"
 end
 
 require 'rdoc/task'

@@ -9,15 +9,6 @@ class Object
     self.to_s.phonetic_code
   end
   
-  def to_s_or_default(default = 'Not Set', *to_s_args)
-    return default if self.nil?
-    begin
-      self.to_s(*to_s_args)
-    rescue
-      default
-    end
-  end
-
   def to_long_s
     to_s
   end

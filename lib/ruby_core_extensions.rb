@@ -2,6 +2,7 @@ module RubyCoreExtensions
   VERSION = '0.0.1'
 
   require 'active_support/core_ext/object/blank'
+
   require 'ruby_core_extensions/array'
   require 'ruby_core_extensions/big_decimal'
   require 'ruby_core_extensions/class'
@@ -17,5 +18,7 @@ module RubyCoreExtensions
   require 'ruby_core_extensions/range'
   require 'ruby_core_extensions/string'
   require 'ruby_core_extensions/time'
+
+  require 'ruby_core_extensions/compact'
 end
 

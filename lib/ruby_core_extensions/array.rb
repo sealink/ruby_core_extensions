@@ -23,10 +23,6 @@ class Array
   def to_hash
     inject({}) { |m, e| m[e[0]] = e[1]; m }
   end
-
-  def compact_blank!
-    delete_if{|v| v.blank?}
-  end
   
   def recursive_blank?
     each do |v|
@@ -37,20 +33,6 @@ class Array
       end
     end
     true
-  end
-
-  def recursive_compact_blank!
-    delete_if do |v|
-      if v.is_a?(Hash)
-        v.recursive_compact_blank!
-        v.recursive_blank?
-      elsif v.is_a?(Array)
-        v.recursive_compact_blank!
-        v.recursive_blank?
-      else
-        v.blank?
-      end
-    end
   end
 
   # Key should be unique, or latest element with that key will override previous ones.

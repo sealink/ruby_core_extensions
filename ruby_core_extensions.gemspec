@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   ## the sub! line in the Rakefile
   s.name              = 'ruby_core_extensions'
   s.version           = '0.0.1'
-  s.date              = '2012-04-04'
+  s.date              = '2012-04-09'
   s.rubyforge_project = 'ruby_core_extensions'
 
   ## Make sure your summary is short. The description may be as long
@@ -59,7 +59,6 @@ Gem::Specification.new do |s|
   # = MANIFEST =
   s.files = %w[
     Gemfile
-    Gemfile.lock
     LICENSE
     README.md
     Rakefile
@@ -67,11 +66,13 @@ Gem::Specification.new do |s|
     lib/ruby_core_extensions/array.rb
     lib/ruby_core_extensions/big_decimal.rb
     lib/ruby_core_extensions/class.rb
+    lib/ruby_core_extensions/compact.rb
+    lib/ruby_core_extensions/compact/array.rb
+    lib/ruby_core_extensions/compact/hash.rb
     lib/ruby_core_extensions/date.rb
     lib/ruby_core_extensions/date_time.rb
     lib/ruby_core_extensions/enumerable.rb
     lib/ruby_core_extensions/file.rb
-    lib/ruby_core_extensions/filename_spec.rb
     lib/ruby_core_extensions/fixnum.rb
     lib/ruby_core_extensions/hash.rb
     lib/ruby_core_extensions/kernel.rb
@@ -82,8 +83,11 @@ Gem::Specification.new do |s|
     lib/ruby_core_extensions/time.rb
     ruby_core_extensions.gemspec
     spec/array_spec.rb
+    spec/compact_spec.rb
     spec/date_range_spec.rb
+    spec/filename_spec.rb
     spec/spec_helper.rb
+    spec/string_spec.rb
   ]
   # = MANIFEST =
 

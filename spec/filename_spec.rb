@@ -1,8 +1,4 @@
-require File.expand_path('../../../spec_helper', __FILE__)
-
-
-describe Filename do
-  include Filename
+describe File do
   it "remove bad characters" do
     safe("john*test.jpg").should == "john-test.jpg"
     safe(" Betty Boop-*StarHyphen").should == "-Betty-Boop-StarHyphen"

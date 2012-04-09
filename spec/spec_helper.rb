@@ -11,6 +11,8 @@ require 'ruby_core_extensions'
 
 if ENV['COVERAGE']
   require 'simplecov'
+  require 'simplecov-rcov'
+  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
   SimpleCov.start
 end
 

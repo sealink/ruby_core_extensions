@@ -32,15 +32,15 @@ end
 
 describe Array, "When hashing by a key" do
 
-    it "should return a hash with keys created using the chosen method" do
-      c = [Time.now, Time.now+15, Time.now+23]
-      c_hashed = c.hash_by(:sec)
-      
-      c_hashed.class.should == Hash
-      c_hashed.each_key.with_index do |k, index|
-        k.should == c[index].sec
-      end
+  it "should return a hash with keys created using the chosen method" do
+    c = [Time.now, Time.now+15, Time.now+23]
+    c_hashed = c.hash_by(:sec)
+    
+    c_hashed.class.should == Hash
+    c_hashed.each_key.with_index do |k, index|
+      k.should == c[index].sec
     end
+  end
 
 end
 
