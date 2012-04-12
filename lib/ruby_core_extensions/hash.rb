@@ -1,5 +1,3 @@
-require "active_support/hash_with_indifferent_access"
-
 class Hash
   
   def all_empty_values?

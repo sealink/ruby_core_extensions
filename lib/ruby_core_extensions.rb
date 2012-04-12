@@ -1,7 +1,8 @@
 module RubyCoreExtensions
   VERSION = '0.0.1'
-
+  
   require 'active_support/core_ext/object/blank'
+  require "active_support/core_ext/hash/indifferent_access"
 
   require 'ruby_core_extensions/array'
   require 'ruby_core_extensions/big_decimal'
