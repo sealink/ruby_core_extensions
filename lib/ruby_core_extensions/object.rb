@@ -63,29 +63,21 @@ class Object
     EVAL
   end
   
-  def convert_recursively(&converter)
+  def convert(&converter)
     converter.call(self)
   end
   
-  def convert_values_recursively(&converter)
-    convert_recursively(&converter)
-  end
-  
-  def convert_keys_recursively(&converter)
-    convert_recursively(&converter)
-  end
-
-  def symbolize_keys_recursively
+  def return_self
     self
   end
   
-  def stringify_values_recursively
-    self
-  end
+  alias_method :convert_values_recursively, :convert
+  alias_method :convert_recursively, :convert
   
-  def make_indifferent_access_recursively
-    self
-  end
+  alias_method :convert_keys_recursively, :return_self
+  alias_method :symbolize_keys_recursively, :return_self
+  alias_method :stringify_values_recursively, :return_self
+  alias_method :make_indifferent_access_recursively, :return_self
   
   def to_bool
     self.to_s.to_bool

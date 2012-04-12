@@ -27,5 +27,6 @@ describe Range, "overlapping with other ranges" do
     # 1-------10
     (10..20).overlaps?(1..10).should be_true
   end
+  
 end
 

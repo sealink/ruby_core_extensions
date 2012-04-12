@@ -1,4 +1,7 @@
+require "active_support/hash_with_indifferent_access"
+
 class Hash
+  
   def all_empty_values?
     self.values.delete_if { |v| v.blank? }.empty? 
   end
@@ -14,6 +17,10 @@ class Hash
     true
   end
   
+  def convert
+    self
+  end
+  
   def convert_keys(&converter)
     inject({}) do |hash, (key, value)|
       hash[converter.call(key)] = value
@@ -23,7 +30,7 @@ class Hash
   
   def convert_values(&converter)
     inject({}) do |hash, (key, value)|
-      hash[key] = converter.call(value)
+      hash[key] = value.convert(&converter)
       hash
     end
   end
