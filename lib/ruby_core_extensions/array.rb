@@ -1,9 +1,4 @@
 class Array
-  # Returns sum as a money - and returns 0 for empty arrays 
-  def total_money
-    blank? ? Money.new(0) : sum
-  end
-  
   def to_param
     self.collect { |element| element.respond_to?(:to_param) ? element.to_param : element }
   end 
