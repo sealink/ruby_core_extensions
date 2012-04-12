@@ -83,7 +83,6 @@ Gem::Specification.new do |s|
     lib/ruby_core_extensions/time.rb
     ruby_core_extensions.gemspec
     spec/array_spec.rb
-    spec/compact_spec.rb
     spec/date_range_spec.rb
     spec/filename_spec.rb
     spec/spec_helper.rb
