@@ -1,10 +1,24 @@
 describe String do
-  it 'should seprate numbers and letters' do
+  
+  it "should convert to underscore replacing spaces with underscores" do
+    "CamelCase UPPERCASE to be_Converted".proper_underscore.should eql "camel_case_uppercase_to_be_converted"
+  end
+  
+  it 'should separate numbers and letters' do
     'abc123'.separate_numbers_and_letters.should == 'abc 123'
     '123Abc'.separate_numbers_and_letters.should == '123 Abc'
 
     # The following should also work but doesn't
     # '1A2b3c'.separate_numbers_and_letters.should == '1 A 2 b 3 c'
+  end
+  
+  it "should convert new lines to <br /> tags" do
+    "Line 1\nLine2\nLine3".nl2br.should eql "Line 1<br />Line2<br />Line3"
+  end
+  
+  it "should convert to date" do
+    "10/10/10".to_date.should eql Date.parse("2010-10-10")
+    "2010-01-10".to_date(:db).should eql Date.parse("2010-01-10")
   end
 
   it 'should squash' do
@@ -33,20 +47,21 @@ describe String do
     text.squash(1).should == 'U'
   end
 
-  it 'should to bool' do
-    't'.to_bool.should be_true
-    'true'.to_bool.should be_true
-    'y'.to_bool.should be_true
-    'yes'.to_bool.should be_true
-    '1'.to_bool.should be_true
+  it 'should convert to bool' do
+    't'.to_bool.should == true
+    'true'.to_bool.should == true
+    'y'.to_bool.should == true
+    'yes'.to_bool.should == true
+    '1'.to_bool.should == true
 
-    'f'.to_bool.should be_false
-    'false'.to_bool.should be_false
-    'n'.to_bool.should be_false
-    'no'.to_bool.should be_false
-    '0'.to_bool.should be_false
-    ''.to_bool.should be_false
+    'f'.to_bool.should == false
+    'false'.to_bool.should == false
+    'n'.to_bool.should == false
+    'no'.to_bool.should == false
+    '0'.to_bool.should == false
+    ''.to_bool.should == false
 
     ->{ 'a'.to_bool }.should raise_error(ArgumentError)
   end
+  
 end
