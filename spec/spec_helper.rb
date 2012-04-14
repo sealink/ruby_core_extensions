@@ -13,9 +13,9 @@ if ENV['COVERAGE']
   require 'simplecov-rcov'
   SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
   SimpleCov.start do
-    add_filter 'vendor'
-    add_filter 'spec'
-    add_group 'lib', 'lib/'
+    add_filter '/vendor/'
+    add_filter '/spec/'
+    add_group 'lib', 'lib'
   end
 end
 
