@@ -18,26 +18,6 @@ class String
   def nl2br
     gsub(/\n/, '<br />')
   end
-  
-  # fmt can be either a symbol for the DATE_FORMATS array or an actual format
-  # e.g. '%d/%m/%Y'
-  # By default it will try to guess the format
-  def to_date(fmt = nil)
-    if fmt
-      fmt = Date::DATE_FORMATS[fmt] if fmt.is_a? Symbol
-      date = ::Date.new(*::Date._strptime(self, fmt).values_at(:year, :mon, :mday))
-      date = date.change(:year => date.year + 2000) if date.year < 1000 # Warning: Treats 99 as 2099
-      date
-    else
-      if self.match(/\d+\/\d+\/\d+/) # Handle Australian Dates (This should be international/localized)
-        to_date('%d/%m/%Y')
-      else
-        ::Date.new(*::Date._parse(self, false).values_at(:year, :mon, :mday))
-      end
-    end
-  rescue NoMethodError, ArgumentError => e
-    raise DateFormatException, "Date #{self} is invalid or not formatted correctly."
-  end
 
   # Squash will reduce words from the end of the string to 3 characters until it
   # fits within the limit, shrinking all words evenly.

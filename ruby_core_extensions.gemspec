@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   ## the sub! line in the Rakefile
   s.name              = 'ruby_core_extensions'
   s.version           = '0.0.1'
-  s.date              = '2012-04-09'
+  s.date              = '2012-04-29'
   s.rubyforge_project = 'ruby_core_extensions'
 
   ## Make sure your summary is short. The description may be as long
@@ -65,27 +65,33 @@ Gem::Specification.new do |s|
     Rakefile
     lib/ruby_core_extensions.rb
     lib/ruby_core_extensions/array.rb
-    lib/ruby_core_extensions/big_decimal.rb
     lib/ruby_core_extensions/class.rb
     lib/ruby_core_extensions/compact.rb
     lib/ruby_core_extensions/compact/array.rb
     lib/ruby_core_extensions/compact/hash.rb
-    lib/ruby_core_extensions/date.rb
-    lib/ruby_core_extensions/date_time.rb
     lib/ruby_core_extensions/enumerable.rb
     lib/ruby_core_extensions/file.rb
-    lib/ruby_core_extensions/fixnum.rb
-    lib/ruby_core_extensions/hash.rb
     lib/ruby_core_extensions/kernel.rb
     lib/ruby_core_extensions/numeric.rb
     lib/ruby_core_extensions/object.rb
-    lib/ruby_core_extensions/range.rb
+    lib/ruby_core_extensions/recursive.rb
+    lib/ruby_core_extensions/recursive/array.rb
+    lib/ruby_core_extensions/recursive/big_decimal.rb
+    lib/ruby_core_extensions/recursive/date.rb
+    lib/ruby_core_extensions/recursive/date_time.rb
+    lib/ruby_core_extensions/recursive/fixnum.rb
+    lib/ruby_core_extensions/recursive/hash.rb
+    lib/ruby_core_extensions/recursive/object.rb
+    lib/ruby_core_extensions/recursive/time.rb
     lib/ruby_core_extensions/string.rb
-    lib/ruby_core_extensions/time.rb
     ruby_core_extensions.gemspec
     spec/array_spec.rb
-    spec/date_range_spec.rb
+    spec/class_spec.rb
+    spec/enumerable_spec.rb
     spec/filename_spec.rb
+    spec/hash_spec.rb
+    spec/numeric_spec.rb
+    spec/object_spec.rb
     spec/spec_helper.rb
     spec/string_spec.rb
   ]

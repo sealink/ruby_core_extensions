@@ -1,9 +1,5 @@
 class Hash
-  
-  def all_empty_values?
-    self.values.delete_if { |v| v.blank? }.empty? 
-  end
-  
+
   def recursive_blank?
     each do |k, v|
       if v.respond_to?(:recursive_blank?)

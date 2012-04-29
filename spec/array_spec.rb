@@ -7,7 +7,8 @@ describe Array do
   end
   
   it "should allow converting all values to strings recursively" do
-    [1, 2, Time.now, [3, 4]].stringify_values_recursively.should eql ['1', '2', Time.now.to_s, ['3', '4']]
+    @now = Time.now
+    [1, 2, @now, [3, 4]].stringify_values_recursively.should eql ['1', '2', @now.to_s, ['3', '4']]
   end
   
   it "should allow removing all blank values" do

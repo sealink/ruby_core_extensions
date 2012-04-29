@@ -16,11 +16,6 @@ describe String do
     "Line 1\nLine2\nLine3".nl2br.should eql "Line 1<br />Line2<br />Line3"
   end
   
-  it "should convert to date" do
-    "10/10/10".to_date.should eql Date.parse("2010-10-10")
-    "2010-01-10".to_date(:db).should eql Date.parse("2010-01-10")
-  end
-
   it 'should squash' do
     text = 'Adelaide University'
     text.squash(30).should == 'Adelaide University'
@@ -61,7 +56,7 @@ describe String do
     '0'.to_bool.should == false
     ''.to_bool.should == false
 
-    ->{ 'a'.to_bool }.should raise_error(ArgumentError)
+    lambda{ 'a'.to_bool }.should raise_error(ArgumentError)
   end
   
 end
