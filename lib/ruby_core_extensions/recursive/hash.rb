@@ -22,9 +22,9 @@ class Hash
     end
   end
   
-  def convert_values(&converter)
-    inject({}) do |hash, (key, value)|
-      hash[key] = value.convert(&converter)
+  def convert_values(*keys, &converter)
+    inject(clone) do |hash, (key, value)|
+      hash[key] = value.convert(&converter) if keys.blank? || keys.include?(key)
       hash
     end
   end

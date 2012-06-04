@@ -22,6 +22,10 @@ describe Hash do
   it "should allow converting values" do
     @hash1.convert_values(&:to_s).should == {:a => "1", :b => {:c => 2}, :d => "test", :e => [3, 4, {:f => 5}]}
   end
+  
+  it "should allow converting values only for specific keys" do
+    @hash1.convert_values(:d, :e, &:to_s).should == {:a => 1, :b => {:c => 2}, :d => "test", :e => [3, 4, {:f => 5}]}
+  end
 
   it "should allow making indifferent access recursively" do
     @hash1.make_indifferent_access_recursively['b']['c'].should eql 2
