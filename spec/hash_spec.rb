@@ -62,5 +62,12 @@ describe Hash do
     a.recursive_compact_blank!
     a.should == {:a => 1, :b => {:c => 1}}
   end
+  
+  it 'should allow extracting subsets' do
+    a = {:a => 1, :b => 2, :c => 3}
+    b = a.extract!(:a, :c)
+    b.should == {:a => 1, :c => 3}
+    a.should == {:b => 2}
+  end
 
 end
