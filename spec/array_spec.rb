@@ -34,4 +34,13 @@ describe Array do
     [1,2,3].hash_by(:ordinalize){ |v| v + 1 }.should == {'1st' => 2, "2nd" => 3, "3rd" => 4}
   end
   
+  it "should allow executing blocks recursively" do
+    array = [1,[2,3],[4,[5,6],7,[8]],9,[[10]]]
+    result = []
+    array.recursively do |e|
+      result << e unless e.is_a?(Array)
+    end 
+    result.should eql [1,2,3,4,5,6,7,8,9,10]
+  end
+  
 end

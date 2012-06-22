@@ -75,5 +75,12 @@ class Hash
     duplicate
   end
   
+  def recursively(&block)
+    each do |key,value|
+      block.call(key,value)
+      value.recursively(&block) if value.respond_to?(:recursively)
+    end
+  end
+  
 end
 

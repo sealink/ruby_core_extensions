@@ -1,4 +1,5 @@
  class Array 
+   
   def convert
     self
   end
@@ -33,4 +34,12 @@
     end
     true
   end
+  
+  def recursively(&block)
+    each do |element|
+      block.call(element)
+      element.recursively(&block) if element.respond_to?(:recursively)
+    end
+  end
+  
 end

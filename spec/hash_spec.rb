@@ -31,6 +31,15 @@ describe Hash do
     @hash1.make_indifferent_access_recursively['b']['c'].should eql 2
     @hash1.make_indifferent_access_recursively['e'][2]['f'].should eql 5
   end
+  
+  it "should allow executing blocks recursively" do
+    hash = {:a => 1, :b => {:a => 2}, :c => {:a => 3, :b => 4, :c => {:a => 5}}}
+    result = []
+    hash.recursively do |k,v|
+      result << v unless v.is_a?(Hash)
+    end 
+    result.should eql [1,2,3,4,5]
+  end
 
 end
 
