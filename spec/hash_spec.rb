@@ -38,7 +38,7 @@ describe Hash do
     hash.recursively do |k,v|
       result << v unless v.is_a?(Hash)
     end 
-    result.should eql [1,2,3,4,5]
+    result.sort.should eql [1,2,3,4,5] # Ruby 1.8.7 doesn't order hash keys
   end
 
 end
