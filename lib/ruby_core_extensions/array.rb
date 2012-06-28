@@ -8,7 +8,7 @@ class Array
     first.titleize
   end  
 
-  def to_model(klass)
+  def id_to_model(klass)
     if self.blank?
       self
     else
