@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe Array do
   
-  it "should allow converting to a hash" do
-    [[:a,1],[:b,2]].to_hash.should == {:a => 1, :b => 2}
-  end
-  
   it "should allow converting all values to strings recursively" do
     @now = Time.now
     [1, 2, @now, [3, 4]].stringify_values_recursively.should eql ['1', '2', @now.to_s, ['3', '4']]
