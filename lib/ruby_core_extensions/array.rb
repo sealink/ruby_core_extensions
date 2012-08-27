@@ -16,9 +16,9 @@ class Array
     end
   end
   
-  def to_hash
-    inject({}) { |m, e| m[e[0]] = e[1]; m }
-  end
+  #def to_hash
+  #  inject({}) { |m, e| m[e[0]] = e[1]; m }
+  #end
 
   # Key should be unique, or latest element with that key will override previous ones.
   def hash_by(key, method = nil, &block)
