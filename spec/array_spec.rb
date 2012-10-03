@@ -28,6 +28,7 @@ describe Array do
     [1,2,3].hash_by(:ordinalize).should == {'1st' => 1, "2nd" => 2, "3rd" => 3}
     [1,2,3].hash_by(:ordinalize, :to_s).should == {'1st' => '1', "2nd" => '2', "3rd" => '3'}
     [1,2,3].hash_by(:ordinalize){ |v| v + 1 }.should == {'1st' => 2, "2nd" => 3, "3rd" => 4}
+    [1,2,3].hash_by{|k| k * 2}.should == {2 => 1, 4 => 2, 6 => 3}
   end
   
   it "should allow executing blocks recursively" do

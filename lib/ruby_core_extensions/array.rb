@@ -21,14 +21,18 @@ class Array
   #end
 
   # Key should be unique, or latest element with that key will override previous ones.
-  def hash_by(key, method = nil, &block)
+  def hash_by(key = nil, method = nil, &block)
     self.inject({}) do |h, element|
-      h[element.send(key)] = if block_given?
-        yield(element)
-      elsif method
-        element.send(method)
-      else
-        element
+      if key
+        h[element.send(key)] = if block_given?
+          yield(element)
+        elsif method
+          element.send(method)
+        else
+          element
+        end
+      else # key is block and value is element
+        h[yield(element)] = element
       end
       h
     end
