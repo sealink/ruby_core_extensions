@@ -42,5 +42,8 @@ class Array
     hash_by(:id, method, &block)
   end
   
+  def intersects?(other)
+    self.any?{|i| other.include?(i)}
+  end
 end
 

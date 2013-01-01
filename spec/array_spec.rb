@@ -40,4 +40,16 @@ describe Array do
     result.should eql [1,2,3,4,5,6,7,8,9,10]
   end
   
+  it '#intersects?' do
+    array1 = [1, 2, 3]
+    array2 = [3, 4, 5]
+    array3 = [6, 7, 8]
+
+    array1.intersects?(array2).should be_true
+    array1.intersects?(array3).should be_false
+    array2.intersects?(array3).should be_false
+
+    array1same = [1, 2, 3]
+    array1.intersects?(array1same).should be_true
+  end
 end
