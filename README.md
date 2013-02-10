@@ -1,6 +1,10 @@
 Ruby Core Extensions 
 ====================
 
+[![Build Status](https://travis-ci.org/sealink/ruby_core_extensions.png?branch=master)](https://travis-ci.org/sealink/ruby_core_extensions)
+[![Build Status](https://gemnasium.com/sealink/ruby_core_extensions.png?travis)](https://gemnasium.com/sealink/ruby_core_extensions)
+[![Build Status](https://codeclimate.com/github/sealink/ruby_core_extensions.png)](https://codeclimate.com/github/sealink/ruby_core_extensions)
+
 # DESCRIPTION
 
 Extends the core ruby classes with helpful functions
