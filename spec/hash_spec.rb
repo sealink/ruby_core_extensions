@@ -80,3 +80,26 @@ describe Hash do
   end
 
 end
+
+
+describe Hash, '#map_key_value' do
+
+  subject { {'1' => '2', 3 => 4} }
+
+  it 'should map key' do
+    subject.map_key(:to_i).should == {1 => '2', 3 => 4}
+  end
+
+  it 'should map value' do
+    subject.map_value(:to_i).should == {'1' => 2, 3 => 4}
+  end
+
+  it 'should map key and value' do
+    subject.map_key_value(:to_i, :to_i).should == {1 => 2, 3 => 4}
+  end
+
+  it 'should map key and value if value not specified' do
+    subject.map_key_value(:to_i).should == {1 => 2, 3 => 4}
+  end
+
+end
