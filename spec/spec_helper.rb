@@ -8,6 +8,8 @@
 require 'rubygems'
 require 'bundler/setup'
 
+MINIMUM_COVERAGE = 88
+
 if ENV['COVERAGE']
   require 'simplecov'
   require 'simplecov-rcov'
@@ -20,8 +22,8 @@ if ENV['COVERAGE']
   SimpleCov.at_exit do
     SimpleCov.result.format!
     percent = SimpleCov.result.covered_percent
-    unless percent >= 85
-      puts "Coverage must be above 85%. It is #{"%.2f" % percent}%"
+    unless percent >= MINIMUM_COVERAGE
+      puts "Coverage must be above #{MINIMUM_COVERAGE}%. It is #{"%.2f" % percent}%"
       Kernel.exit(1)
     end
   end
