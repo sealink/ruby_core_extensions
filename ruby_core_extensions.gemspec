@@ -6,7 +6,7 @@
 ## http://docs.rubygems.org/read/chapter/20
 Gem::Specification.new do |s|
   s.specification_version = 2 if s.respond_to? :specification_version=
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.rubygems_version = '1.3.5'
 
   ## Leave these as is they will be modified for you by the rake gemspec task.
@@ -19,13 +19,13 @@ Gem::Specification.new do |s|
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
-  s.summary = "Set of extensions to core ruby libraries used by TravelLink Technology."
-  s.description = "These are extensions from core ruby classes."
+  s.summary = 'Set of extensions to core ruby libraries used by TravelLink Technology.'
+  s.description = 'These are extensions from core ruby classes.'
 
   ## List the primary authors. If there are a bunch of authors, it's probably
   ## better to set the email to an email list or something. If you don't have
   ## a custom homepage, consider using your GitHub URL or the like.
-  s.authors = ["Michael Noack", "Alessandro Berardi"]
+  s.authors = ['Michael Noack', 'Alessandro Berardi']
   s.email = 'development@travellink.com.au'
   s.homepage = 'http://github.com/sealink/ruby_core_extensions'
 
@@ -42,12 +42,12 @@ Gem::Specification.new do |s|
 
   ## Specify any RDoc options here. You'll want to add your README and
   ## LICENSE files to the extra_rdoc_files list.
-  s.rdoc_options = ["--charset=UTF-8"]
+  s.rdoc_options = %w[--charset=UTF-8]
   s.extra_rdoc_files = %w[README.md LICENSE]
 
   ## List your runtime dependencies here. Runtime dependencies are those
   ## that are needed for an end user to actually USE your code.
-  s.add_dependency('activesupport', [">= 2.0"])
+  s.add_dependency('activesupport', ['>= 2.0'])
   s.add_dependency('tzinfo', ['~> 0.3.0'])
 
   ## List your development dependencies here. Development dependencies are
