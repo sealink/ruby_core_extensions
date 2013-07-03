@@ -1,0 +1,11 @@
+source :rubygems
+gemspec :path => '../'
+
+group :development, :test do
+  gem 'rake'
+  gem 'rdoc'
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
+  gem 'activesupport', '~> 3.2.0'
+end
