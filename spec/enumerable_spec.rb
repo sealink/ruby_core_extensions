@@ -7,5 +7,9 @@ describe Enumerable do
   end
 
 
+  context 'when detecting and returning the block value' do
+    it { [1,2,3].detect_and_return { |number| number.even? && number * number }.should == 4 }
+    it { [1,3,5].detect_and_return { |number| number.even? && number * number }.should be_nil }
+  end
   
 end

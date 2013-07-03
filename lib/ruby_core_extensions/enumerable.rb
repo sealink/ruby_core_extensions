@@ -10,6 +10,14 @@ module Enumerable
   end
 
 
+  def detect_and_return
+    detect do |e|
+      result = yield(e)
+      return result if result
+    end
+  end
+
+
   if RUBY_VERSION < '1.9'
     def with_object(obj, &block)
       return to_enum :with_object, obj unless block_given?
