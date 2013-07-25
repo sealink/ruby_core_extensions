@@ -11,5 +11,14 @@ describe Enumerable do
     it { [1,2,3].detect_and_return { |number| number.even? && number * number }.should == 4 }
     it { [1,3,5].detect_and_return { |number| number.even? && number * number }.should be_nil }
   end
+
+
+  it 'should allow selecting by attribute' do
+    one = double(:name => 'one', :type => 'odd')
+    two = double(:name => 'two', :type => 'even')
+    thr = double(:name => 'thr', :type => 'odd')
+    [one, two, thr].select_by_attr(:type, 'odd').should == [one, thr]
+    [one, two, thr].select_by_attr(:type, 'even').should == [two]
+  end
   
 end

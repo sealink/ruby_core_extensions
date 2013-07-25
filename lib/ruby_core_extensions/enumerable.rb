@@ -18,6 +18,13 @@ module Enumerable
   end
 
 
+  def select_by_attr(attr, value)
+    select do |e|
+      e.send(attr) == value
+    end
+  end
+
+
   if RUBY_VERSION < '1.9'
     def with_object(obj, &block)
       return to_enum :with_object, obj unless block_given?
