@@ -1,9 +1,9 @@
 describe String do
-  
+
   it "should convert to underscore replacing spaces with underscores" do
     "CamelCase UPPERCASE to be_Converted".proper_underscore.should eql "camel_case_uppercase_to_be_converted"
   end
-  
+
   it 'should separate numbers and letters' do
     'abc123'.separate_numbers_and_letters.should == 'abc 123'
     '123Abc'.separate_numbers_and_letters.should == '123 Abc'
@@ -11,11 +11,11 @@ describe String do
     # The following should also work but doesn't
     # '1A2b3c'.separate_numbers_and_letters.should == '1 A 2 b 3 c'
   end
-  
+
   it "should convert new lines to <br /> tags" do
     "Line 1\nLine2\nLine3".nl2br.should eql "Line 1<br />Line2<br />Line3"
   end
-  
+
   it 'should squash' do
     text = 'Adelaide University'
     text.squash(30).should == 'Adelaide University'
@@ -56,7 +56,7 @@ describe String do
     '0'.to_bool.should == false
     ''.to_bool.should == false
 
-    lambda{ 'a'.to_bool }.should raise_error(ArgumentError)
+    expect { 'a'.to_bool }.to raise_error(ArgumentError)
   end
-  
+
 end
