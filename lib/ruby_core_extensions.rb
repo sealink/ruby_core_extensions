@@ -1,6 +1,7 @@
 module RubyCoreExtensions
   VERSION = '0.0.1'
   
+  require 'active_support/dependencies/autoload'
   require 'active_support/core_ext'
 
   require 'ruby_core_extensions/array'
