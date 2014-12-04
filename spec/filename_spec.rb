@@ -1,13 +1,13 @@
 describe File do
   it "remove bad characters" do
-    safe("john*test.jpg").should == "john-test.jpg"
-    safe(" Betty Boop-*StarHyphen").should == "-Betty-Boop-StarHyphen"
-    safe("What The Hotel?").should == "What-The-Hotel-"
+    expect(safe("john*test.jpg")).to eq "john-test.jpg"
+    expect(safe(" Betty Boop-*StarHyphen")).to eq "-Betty-Boop-StarHyphen"
+    expect(safe("What The Hotel?")).to eq "What-The-Hotel-"
   end
 
   it "should prittify & to and" do
-    safe("Guns & Roses").should == "Guns-and-Roses"
-    safe("& They Lived").should == "and-They-Lived"
+    expect(safe("Guns & Roses")).to eq "Guns-and-Roses"
+    expect(safe("& They Lived")).to eq "and-They-Lived"
   end
 
   def safe(from)
