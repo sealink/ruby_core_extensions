@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'simplecov-rcov'
+  spec.add_development_dependency 'coveralls'
 end
