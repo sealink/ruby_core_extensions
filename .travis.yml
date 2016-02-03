@@ -21,3 +21,5 @@ notifications:
     - support@travellink.com.au
   flowdock:
     secure: IK3CyMRa++LNdooemZJBZSNdwUiKpVdXZUz9exYIkj3La/EJDOy+kqV2NzYdqRht2BGHHiRsVn3hVqySDDuv9jxBHTZgM0v/pQ4kT8JZqi7fDb36axf3M6Y2VJyrJ0S/9BbHqLE95B4NXQ30ctLCSfQNbp9sOn2EwP3DZS9KJks=
+sudo: false
+cache: bundler
