@@ -1,6 +1,4 @@
 module RubyCoreExtensions
-  VERSION = '0.0.1'
-
   require 'active_support/version'
   if ActiveSupport::VERSION::MAJOR > 2
     require 'active_support/dependencies/autoload'
