@@ -6,3 +6,9 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false # Using Ruby 2.4 doesn't need it
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
