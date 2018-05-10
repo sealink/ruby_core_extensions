@@ -24,10 +24,10 @@ describe Array do
   end
 
   it "should allow converting to hash given a key" do
-    expect([1, 2, 3].hash_by(:ordinalize)).to eq({ '1st' => 1, "2nd" => 2, "3rd" => 3 })
-    expect([1, 2, 3].hash_by(:ordinalize, :to_s)).to eq({ '1st' => '1', "2nd" => '2', "3rd" => '3' })
-    expect([1, 2, 3].hash_by(:ordinalize) { |v| v + 1 }).to eq({ '1st' => 2, "2nd" => 3, "3rd" => 4 })
-    expect([1, 2, 3].hash_by { |k| k * 2 }).to eq({ 2 => 1, 4 => 2, 6 => 3 })
+    expect([1, 2, 3].hash_by(:ordinalize)).to eq('1st' => 1, "2nd" => 2, "3rd" => 3)
+    expect([1, 2, 3].hash_by(:ordinalize, :to_s)).to eq('1st' => '1', "2nd" => '2', "3rd" => '3')
+    expect([1, 2, 3].hash_by(:ordinalize) { |v| v + 1 }).to eq('1st' => 2, "2nd" => 3, "3rd" => 4)
+    expect([1, 2, 3].hash_by { |k| k * 2 }).to eq(2 => 1, 4 => 2, 6 => 3)
   end
 
   it "should allow executing blocks recursively" do
