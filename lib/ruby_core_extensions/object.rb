@@ -17,7 +17,7 @@ class Object
     options = associations.extract_options!
 
     associations.each do |association|
-      class_eval(__FILE__, __LINE__) <<-EVAL
+      class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
         attr_accessor :#{association}, :#{association}_id
 
         def #{association}=(#{association})
@@ -47,7 +47,7 @@ class Object
 
     normal_name = name.to_s.gsub('!', '')
 
-    class_eval(__FILE__, __LINE__) <<-EVAL
+    class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
       attr_accessor :reason_not_#{normal_name}
       def #{normal_name}?(*args)
         #{name}(*args)
