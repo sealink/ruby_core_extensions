@@ -1,6 +1,6 @@
 class Array
   def compact_blank!
-    delete_if { |v| v.blank? }
+    delete_if(&:blank?)
   end
 
   def recursive_compact_blank!

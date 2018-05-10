@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Array do
   it "should allow converting all values to strings recursively" do
     @now = Time.now
-    expect([1, 2, @now, [3, 4]].stringify_values_recursively).to eq ['1', '2', @now.to_s, ['3', '4']]
+    expect([1, 2, @now, [3, 4]].stringify_values_recursively).to eq ['1', '2', @now.to_s, %w[3 4]]
   end
 
   it "should allow removing all blank values" do

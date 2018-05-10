@@ -4,7 +4,9 @@ describe Object do
   class TestClass; end
 
   class TestModel
-    def id; 1; end
+    def id
+      1
+    end
   end
 
   before do
