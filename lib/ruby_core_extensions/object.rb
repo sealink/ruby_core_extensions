@@ -16,7 +16,7 @@ class Object
   def virtual_belongs_to(*associations)
     options = associations.extract_options!
 
-    for association in associations
+    associations.each do |association|
       class_eval <<-EVAL
         attr_accessor :#{association}, :#{association}_id
 
