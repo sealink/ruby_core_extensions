@@ -52,7 +52,6 @@ describe Hash do
     hash.recursively do |_k, v|
       result << v unless v.is_a?(Hash)
     end
-    # Ruby 1.8.7 doesn't order hash keys
     expect(result.sort).to eq [1, 2, 3, 4, 5]
   end
 end
