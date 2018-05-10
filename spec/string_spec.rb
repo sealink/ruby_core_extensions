@@ -1,6 +1,6 @@
 describe String do
-  it "should convert to underscore replacing spaces with underscores" do
-    expect("CamelCase UPPERCASE to be_Converted".proper_underscore).to eq "camel_case_uppercase_to_be_converted"
+  it 'should convert to underscore replacing spaces with underscores' do
+    expect('CamelCase UPPERCASE to be_Converted'.proper_underscore).to eq 'camel_case_uppercase_to_be_converted'
   end
 
   it 'should separate numbers and letters' do
@@ -11,8 +11,8 @@ describe String do
     # '1A2b3c'.separate_numbers_and_letters.should == '1 A 2 b 3 c'
   end
 
-  it "should convert new lines to <br /> tags" do
-    expect("Line 1\nLine2\nLine3".nl2br).to eq "Line 1<br />Line2<br />Line3"
+  it 'should convert new lines to <br /> tags' do
+    expect("Line 1\nLine2\nLine3".nl2br).to eq 'Line 1<br />Line2<br />Line3'
   end
 
   it 'should squash' do

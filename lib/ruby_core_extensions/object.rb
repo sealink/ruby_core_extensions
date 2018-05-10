@@ -42,7 +42,7 @@ class Object
   end
 
   def booleanize(name, options)
-    raise ArgumentError, ":rescue option is required" if options[:rescue].blank?
+    raise ArgumentError, ':rescue option is required' if options[:rescue].blank?
     options[:rescue] = [options[:rescue]] unless options[:rescue].is_a?(Array)
 
     normal_name = name.to_s.gsub('!', '')

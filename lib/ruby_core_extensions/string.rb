@@ -1,6 +1,6 @@
 class String
   def proper_underscore
-    titleize.gsub(" ", "").underscore
+    titleize.gsub(' ', '').underscore
   end
 
   # Generate a phonetic code - which is the same for similar sounding names

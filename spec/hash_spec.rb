@@ -8,32 +8,32 @@ describe Hash do
     @hash2 = { 'a' => 1, 'b' => { 'c' => 2 }, :d => 'test', 'e' => @sub_array2 }
   end
 
-  it "should allow converting all values to strings recursively" do
-    expect(@hash1.stringify_values_recursively).to eq(a: "1", b: { c: "2" }, d: "test", e: ["3", '4.0', "2000-01-01", '2000-01-01T00:00:00+00:00', { f: "5" }])
+  it 'should allow converting all values to strings recursively' do
+    expect(@hash1.stringify_values_recursively).to eq(a: '1', b: { c: '2' }, d: 'test', e: ['3', '4.0', '2000-01-01', '2000-01-01T00:00:00+00:00', { f: '5' }])
   end
 
-  it "should allow converting all keys to symbols recursively" do
+  it 'should allow converting all keys to symbols recursively' do
     expect(@hash2.symbolize_keys_recursively).to eq @hash1
   end
 
-  it "should allow converting keys" do
-    expect(@hash1.convert_keys(&:to_s)).to eq("a" => 1, "b" => { c: 2 }, "d" => "test", "e" => @sub_array1)
+  it 'should allow converting keys' do
+    expect(@hash1.convert_keys(&:to_s)).to eq('a' => 1, 'b' => { c: 2 }, 'd' => 'test', 'e' => @sub_array1)
   end
 
-  it "should allow converting values" do
-    expect(@hash1.convert_values(&:to_s)).to eq(a: "1", b: { c: 2 }, d: "test", e: @sub_array1)
+  it 'should allow converting values' do
+    expect(@hash1.convert_values(&:to_s)).to eq(a: '1', b: { c: 2 }, d: 'test', e: @sub_array1)
   end
 
-  it "should allow converting values only for specific keys" do
-    expect(@hash1.convert_values(:d, :e, &:to_s)).to eq(a: 1, b: { c: 2 }, d: "test", e: @sub_array1)
+  it 'should allow converting values only for specific keys' do
+    expect(@hash1.convert_values(:d, :e, &:to_s)).to eq(a: 1, b: { c: 2 }, d: 'test', e: @sub_array1)
   end
 
-  it "should allow making indifferent access recursively" do
+  it 'should allow making indifferent access recursively' do
     expect(@hash1.make_indifferent_access_recursively['b']['c']).to eq 2
     expect(@hash1.make_indifferent_access_recursively['e'][4]['f']).to eq 5
   end
 
-  it "should allow executing blocks recursively" do
+  it 'should allow executing blocks recursively' do
     hash = { a: 1, b: { a: 2 }, c: { a: 3, b: 4, c: { a: 5 } } }
     result = []
     hash.recursively do |k, v|
