@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe Hash do
   before do
-    @sub_array1 = [3, BigDecimal('4'), Date.new(2000, 1, 1), DateTime.new(2000, 1, 1, 0, 0, 0), { :f => 5 }]
+    @sub_array1 = [3, BigDecimal('4'), Date.new(2000, 1, 1), DateTime.new(2000, 1, 1, 0, 0, 0), { f: 5 }]
     @sub_array2 = [3, BigDecimal('4'), Date.new(2000, 1, 1), DateTime.new(2000, 1, 1, 0, 0, 0), { 'f' => 5 }]
-    @hash1 = { :a  => 1, :b  => { :c  => 2 }, :d => 'test', :e  => @sub_array1 }
+    @hash1 = { a: 1, b: { c: 2 }, d: 'test', e: @sub_array1 }
     @hash2 = { 'a' => 1, 'b' => { 'c' => 2 }, :d => 'test', 'e' => @sub_array2 }
   end
 
   it "should allow converting all values to strings recursively" do
-    expect(@hash1.stringify_values_recursively).to eq({ :a => "1", :b => { :c => "2" }, :d => "test", :e => ["3", '4.0', "2000-01-01", '2000-01-01T00:00:00+00:00', { :f => "5" }] })
+    expect(@hash1.stringify_values_recursively).to eq({ a: "1", b: { c: "2" }, d: "test", e: ["3", '4.0', "2000-01-01", '2000-01-01T00:00:00+00:00', { f: "5" }] })
   end
 
   it "should allow converting all keys to symbols recursively" do
@@ -17,15 +17,15 @@ describe Hash do
   end
 
   it "should allow converting keys" do
-    expect(@hash1.convert_keys(&:to_s)).to eq({ "a" => 1, "b" => { :c => 2 }, "d" => "test", "e" => @sub_array1 })
+    expect(@hash1.convert_keys(&:to_s)).to eq({ "a" => 1, "b" => { c: 2 }, "d" => "test", "e" => @sub_array1 })
   end
 
   it "should allow converting values" do
-    expect(@hash1.convert_values(&:to_s)).to eq({ :a => "1", :b => { :c => 2 }, :d => "test", :e => @sub_array1 })
+    expect(@hash1.convert_values(&:to_s)).to eq({ a: "1", b: { c: 2 }, d: "test", e: @sub_array1 })
   end
 
   it "should allow converting values only for specific keys" do
-    expect(@hash1.convert_values(:d, :e, &:to_s)).to eq({ :a => 1, :b => { :c => 2 }, :d => "test", :e => @sub_array1 })
+    expect(@hash1.convert_values(:d, :e, &:to_s)).to eq({ a: 1, b: { c: 2 }, d: "test", e: @sub_array1 })
   end
 
   it "should allow making indifferent access recursively" do
@@ -34,7 +34,7 @@ describe Hash do
   end
 
   it "should allow executing blocks recursively" do
-    hash = { :a => 1, :b => { :a => 2 }, :c => { :a => 3, :b => 4, :c => { :a => 5 } } }
+    hash = { a: 1, b: { a: 2 }, c: { a: 3, b: 4, c: { a: 5 } } }
     result = []
     hash.recursively do |k, v|
       result << v unless v.is_a?(Hash)
@@ -45,36 +45,36 @@ end
 
 describe Hash do
   it 'should allow removing all nil values and return a new hash' do
-    expect({ :a => 1, :b => nil }.compact).to eq({ :a => 1 })
+    expect({ a: 1, b: nil }.compact).to eq({ a: 1 })
   end
 
   it 'should allow removing all nil values' do
-    a = { :a => 1, :b => nil }
+    a = { a: 1, b: nil }
     a.compact!
-    expect(a).to eq({ :a => 1 })
+    expect(a).to eq({ a: 1 })
   end
 
   it 'should allow removing all nil values and return a new hash' do
-    expect({ :a => 1, :b => '' }.compact_blank).to eq({ :a => 1 })
+    expect({ a: 1, b: '' }.compact_blank).to eq({ a: 1 })
   end
 
   it 'should allow removing all blank values' do
-    a = { :a => 1, :b => '' }
+    a = { a: 1, b: '' }
     a.compact_blank!
-    expect(a).to eq({ :a => 1 })
+    expect(a).to eq({ a: 1 })
   end
 
   it 'should allow removing all blank values recursively' do
-    a = { :a => 1, :b => { :c => 1, :d => '', :e => [] } }
+    a = { a: 1, b: { c: 1, d: '', e: [] } }
     a.recursive_compact_blank!
-    expect(a).to eq({ :a => 1, :b => { :c => 1 } })
+    expect(a).to eq({ a: 1, b: { c: 1 } })
   end
 
   it 'should allow extracting subsets' do
-    a = { :a => 1, :b => 2, :c => 3 }
+    a = { a: 1, b: 2, c: 3 }
     b = a.extract!(:a, :c)
-    expect(b).to eq({ :a => 1, :c => 3 })
-    expect(a).to eq({ :b => 2 })
+    expect(b).to eq({ a: 1, c: 3 })
+    expect(a).to eq({ b: 2 })
   end
 end
 

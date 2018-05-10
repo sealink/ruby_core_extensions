@@ -13,7 +13,7 @@ describe Array do
   end
 
   it "should allow removing all blank values recursively" do
-    a = [1, 2, [" Kan", {}], nil, { :a => "", :b => {} }, ["garoos", " "]]
+    a = [1, 2, [" Kan", {}], nil, { a: "", b: {} }, ["garoos", " "]]
     a.recursive_compact_blank!
     expect(a.join).to eq "12 Kangaroos"
   end

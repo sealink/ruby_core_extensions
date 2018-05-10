@@ -35,7 +35,7 @@ describe Object do
   end
 
   it "should allow defining methods that will return boolean depending on the execution of another method" do
-    expect { @object.booleanize(:verify!, :rescue => ReadyError) }.to_not raise_error
+    expect { @object.booleanize(:verify!, rescue: ReadyError) }.to_not raise_error
     expect { @object.verify? }.to raise_error(ArgumentError, 'Ready should be a boolean')
     @object.ready = false
     expect { @object.verify? }.to_not raise_error
