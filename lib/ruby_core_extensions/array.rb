@@ -17,7 +17,7 @@ class Array
                                  element.send(method)
                                else
                                  element
-        end
+                               end
       else # key is block and value is element
         h[yield(element)] = element
       end

@@ -57,7 +57,7 @@ class String
                           word.size - letters_to_remove # Removing final characters
                         else
                           word_char_min
-      end
+                        end
 
       # Replace word
       words[words.size - index - 1] = word[0..(letters_to_keep - 1)]
