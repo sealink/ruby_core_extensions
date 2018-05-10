@@ -5,6 +5,9 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
 
+### Added
+- Correct various rubocop issues
+
 ## 0.0.1
 
 ### Added

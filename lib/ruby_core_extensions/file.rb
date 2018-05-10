@@ -3,10 +3,9 @@ class File
   SAFE_CHARS = /[^a-zA-Z0-9._\-]/
 
   def self.safe_name(name)
-    name.gsub('&', 'and'). # prittify & to and
-      gsub(/\s/, '-'). # replace spaces with dashes
-      gsub(SAFE_CHARS, '-'). # replace with portable characters
-      gsub(/\-+/, '-') # limit - character to once
+    name.gsub('&', 'and') # prittify & to and
+        .gsub(/\s/, '-') # replace spaces with dashes
+        .gsub(SAFE_CHARS, '-') # replace with portable characters
+        .gsub(/\-+/, '-') # limit - character to once
   end
 end
-

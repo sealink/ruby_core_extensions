@@ -1,24 +1,24 @@
 class Hash
   # Remove nil values
   def compact
-    self.dup.compact!
+    dup.compact!
   end
 
   # Remove nil values - !desctructively!
   def compact!
-    delete_if{|k,v| v.nil?}
+    delete_if { |_k, v| v.nil? }
   end
 
   def compact_blank
-    self.dup.compact_blank!
+    dup.compact_blank!
   end
 
   def compact_blank!
-    delete_if{|k,v| v.blank?}
+    delete_if { |_k, v| v.blank? }
   end
 
   def recursive_compact_blank!
-    delete_if do |k,v|
+    delete_if do |_k, v|
       if v.is_a?(Hash)
         v.recursive_compact_blank!
         v.recursive_blank?
@@ -31,4 +31,3 @@ class Hash
     end
   end
 end
-

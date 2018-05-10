@@ -1,5 +1,5 @@
 class BigDecimal
   def stringify_values_recursively
-    self.to_s
+    to_s
   end
 end
