@@ -49,7 +49,7 @@ describe Hash do
   it 'should allow executing blocks recursively' do
     hash = { a: 1, b: { a: 2 }, c: { a: 3, b: 4, c: { a: 5 } } }
     result = []
-    hash.recursively do |k, v|
+    hash.recursively do |_k, v|
       result << v unless v.is_a?(Hash)
     end
     # Ruby 1.8.7 doesn't order hash keys

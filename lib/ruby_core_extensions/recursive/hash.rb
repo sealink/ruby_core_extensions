@@ -1,6 +1,6 @@
 class Hash
   def recursive_blank?
-    each do |k, v|
+    each do |_k, v|
       if v.respond_to?(:recursive_blank?)
         return false unless v.recursive_blank?
       else
