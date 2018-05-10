@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Michael Noack', 'Alessandro Berardi']
   spec.email         = 'development@travellink.com.au'
   spec.description   = 'These are extensions from core ruby classes.'
-  spec.summary       = 'Set of extensions to core ruby libraries used by TravelLink Technology.'
+  spec.summary       = 'Set of extensions to core ruby libraries.'
   spec.homepage      = 'http://github.com/sealink/ruby_core_extensions'
 
   spec.license       = 'MIT'

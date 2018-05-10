@@ -27,25 +27,30 @@ describe Object do
     attr_accessor :ready
 
     def verify!
-      fail ArgumentError, 'Ready should be a boolean' unless ready.is_a?(TrueClass) || ready.is_a?(FalseClass)
+      unless ready.is_a?(TrueClass) || ready.is_a?(FalseClass)
+        fail ArgumentError, 'Ready should be a boolean'
+      end
       fail ReadyError, 'Not ready' unless ready
     end
   end
 
-  before do
-    @object = BooleanizeTest.new
-  end
+  let(:object) { BooleanizeTest.new }
 
-  it 'should allow defining methods that will return boolean depending on the execution of another method' do
-    expect { @object.booleanize(:verify!, rescue: ReadyError) }.to_not raise_error
-    expect { @object.verify? }.to raise_error(ArgumentError, 'Ready should be a boolean')
-    @object.ready = false
-    expect { @object.verify? }.to_not raise_error
-    expect(@object.verify?).to be false
-    expect(@object.reason_not_verify).to eq 'Not ready'
-    @object.ready = true
-    expect { @object.verify? }.to_not raise_error
-    expect(@object.verify?).to be true
-    expect(@object.reason_not_verify).to be nil
+  it '#booleanize' do
+    expect {
+      object.booleanize(:verify!, rescue: ReadyError)
+    }.to_not raise_error
+    expect { object.verify? }.to raise_error(
+      ArgumentError,
+      'Ready should be a boolean'
+    )
+    object.ready = false
+    expect { object.verify? }.to_not raise_error
+    expect(object.verify?).to be false
+    expect(object.reason_not_verify).to eq 'Not ready'
+    object.ready = true
+    expect { object.verify? }.to_not raise_error
+    expect(object.verify?).to be true
+    expect(object.reason_not_verify).to be nil
   end
 end

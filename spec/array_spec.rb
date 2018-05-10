@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe Array do
   it 'should allow converting all values to strings recursively' do
-    @now = Time.now
-    expect([1, 2, @now, [3, 4]].stringify_values_recursively).to eq ['1', '2', @now.to_s, %w[3 4]]
+    now = Time.now
+    output = ['1', '2', now.to_s, %w[3 4]]
+    expect([1, 2, now, [3, 4]].stringify_values_recursively).to eq output
   end
 
   it 'should allow removing all blank values' do
@@ -24,9 +25,12 @@ describe Array do
   end
 
   it 'should allow converting to hash given a key' do
-    expect([1, 2, 3].hash_by(:ordinalize)).to eq('1st' => 1, '2nd' => 2, '3rd' => 3)
-    expect([1, 2, 3].hash_by(:ordinalize, :to_s)).to eq('1st' => '1', '2nd' => '2', '3rd' => '3')
-    expect([1, 2, 3].hash_by(:ordinalize) { |v| v + 1 }).to eq('1st' => 2, '2nd' => 3, '3rd' => 4)
+    output1 = { '1st' => 1, '2nd' => 2, '3rd' => 3 }
+    expect([1, 2, 3].hash_by(:ordinalize)).to eq output1
+    output2 = { '1st' => '1', '2nd' => '2', '3rd' => '3' }
+    expect([1, 2, 3].hash_by(:ordinalize, :to_s)).to eq output2
+    output3 = { '1st' => 2, '2nd' => 3, '3rd' => 4 }
+    expect([1, 2, 3].hash_by(:ordinalize) { |v| v + 1 }).to eq output3
     expect([1, 2, 3].hash_by { |k| k * 2 }).to eq(2 => 1, 4 => 2, 6 => 3)
   end
 

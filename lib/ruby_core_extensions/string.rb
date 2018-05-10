@@ -21,7 +21,8 @@ class String
 
   # Squash will reduce words from the end of the string to 3 characters until it
   # fits within the limit, shrinking all words evenly.
-  # Where not all words can be shrunk evenly, the last words will be reduced by 1
+  # Where not all words can be shrunk evenly,
+  # the last words will be reduced by 1
   # Until within the limit
   # e.g.
   # "Adelaide University".squash(30)
@@ -42,7 +43,9 @@ class String
     words = split(' ')
 
     # Return first letter of <limit> words
-    return words.first(limit).map { |w| w.chars.first }.join if (words.size * 2 - 1) >= limit
+    if (words.size * 2 - 1) >= limit
+      return words.first(limit).map { |w| w.chars.first }.join
+    end
 
     spaces = words.size - 1
     word_char_min = (limit - spaces) / words.size
@@ -53,8 +56,10 @@ class String
     words.reverse.each.with_index do |word, index|
       letters_to_remove = words.join(' ').size - limit
 
-      letters_to_keep = if (last_case = (letters_to_remove <= (word.size - word_char_min)))
-                          word.size - letters_to_remove # Removing final characters
+      last_case = letters_to_remove <= (word.size - word_char_min)
+      letters_to_keep = if last_case
+                          # Removing final characters
+                          word.size - letters_to_remove
                         else
                           word_char_min
                         end
