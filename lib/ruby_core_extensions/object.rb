@@ -45,7 +45,7 @@ class Object
     raise ArgumentError, ':rescue option is required' if options[:rescue].blank?
     options[:rescue] = [options[:rescue]] unless options[:rescue].is_a?(Array)
 
-    normal_name = name.to_s.gsub('!', '')
+    normal_name = name.to_s.delete('!')
 
     class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
       attr_accessor :reason_not_#{normal_name}
