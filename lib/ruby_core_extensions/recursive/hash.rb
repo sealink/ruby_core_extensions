@@ -15,54 +15,49 @@ class Hash
   end
 
   def convert_keys(&converter)
-    inject({}) do |hash, (key, value)|
+    each.with_object({}) do |(key, value), hash|
       hash[converter.call(key)] = value
-      hash
     end
   end
 
   def convert_values(*keys, &converter)
-    inject(clone) do |hash, (key, value)|
+    each.with_object(clone) do |(key, value), hash|
       hash[key] = value.convert(&converter) if keys.blank? || keys.include?(key)
-      hash
     end
   end
 
   def convert_keys_recursively(&converter)
-    Hash[map do |key, value|
-           k = converter.call(key)
-           v = value.convert_keys_recursively(&converter)
-           [k, v]
-         end]
+    map.with_object({}) do |(key, value), hash|
+      k = converter.call(key)
+      hash[k] = value.convert_keys_recursively(&converter)
+    end
   end
 
   def convert_values_recursively(&converter)
-    inject({}) do |hash, (key, value)|
+    each.with_object({}) do |(key, value), hash|
       hash[key] = value.convert_values_recursively(&converter)
-      hash
     end
   end
 
   def symbolize_keys_recursively
-    Hash[map do |key, value|
-           k = key.is_a?(String) ? key.to_sym : key
-           v = value.symbolize_keys_recursively
-           [k, v]
-         end]
+    map.with_object({}) do |(key, value), hash|
+      k = key.is_a?(String) ? key.to_sym : key
+      hash[k] = value.symbolize_keys_recursively
+    end
   end
 
   def stringify_values_recursively
-    inject({}) do |options, (key, value)|
-      options[key] = value.stringify_values_recursively
-      options
+    each.with_object({}) do |(key, value), hash|
+      hash[key] = value.stringify_values_recursively
     end
   end
 
   def make_indifferent_access_recursively
-    HashWithIndifferentAccess.new(inject({}) do |options, (key, value)|
-                                    options[key] = value.make_indifferent_access_recursively
-                                    options
-                                  end)
+    HashWithIndifferentAccess.new(
+      each.with_object({}) do |(key, value), hash|
+        hash[key] = value.make_indifferent_access_recursively
+      end
+    )
   end
 
   def deep_dup

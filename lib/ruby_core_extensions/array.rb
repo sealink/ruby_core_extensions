@@ -9,19 +9,18 @@ class Array
 
   # Key should be unique, or latest element with that key will override previous ones.
   def hash_by(key = nil, method = nil, &block)
-    inject({}) do |h, element|
+    each.with_object({}) do |element, hash|
       if key
-        h[element.send(key)] = if block_given?
-                                 yield(element)
-                               elsif method
-                                 element.send(method)
-                               else
-                                 element
-                               end
+        hash[element.send(key)] = if block_given?
+                                    yield(element)
+                                  elsif method
+                                    element.send(method)
+                                  else
+                                    element
+                                  end
       else # key is block and value is element
-        h[yield(element)] = element
+        hash[yield(element)] = element
       end
-      h
     end
   end
 

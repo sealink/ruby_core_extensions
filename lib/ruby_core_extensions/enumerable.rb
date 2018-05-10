@@ -1,9 +1,8 @@
 module Enumerable
   def map_methods(*methods)
     map do |object|
-      methods.inject({}) do |h, method|
-        h[method] = object.send(method)
-        h
+      methods.each.with_object({}) do |method, hash|
+        hash[method] = object.send(method)
       end
     end
   end
