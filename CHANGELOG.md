@@ -6,8 +6,10 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 ## Unreleased
 
 ### Added
-
 - [TT-4020] Implemented Rubocop
+
+### Changed
+- stringify_values_recursively now just works on to_s for all objects
 
 ## 0.0.1
 
