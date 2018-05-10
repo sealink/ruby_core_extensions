@@ -3,16 +3,16 @@ class Object
   def sounds_like?(other)
     self.phonetic_code == other.phonetic_code
   end
-  
+
   # Convert this object into a string, then convert that to phonetic code
   def phonetic_code
     self.to_s.phonetic_code
   end
-  
+
   def to_long_s
     to_s
   end
-  
+
   def virtual_belongs_to(*associations)
     options = associations.extract_options!
 
@@ -41,7 +41,6 @@ class Object
     end
   end
 
-
   def booleanize(name, options)
     raise ArgumentError, ":rescue option is required" if options[:rescue].blank?
     if !options[:rescue].is_a?(Array)
@@ -62,11 +61,8 @@ class Object
       end
     EVAL
   end
-  
-  
+
   def to_bool
     self.to_s.to_bool
   end
-  
 end
-

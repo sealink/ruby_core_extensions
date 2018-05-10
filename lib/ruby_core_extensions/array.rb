@@ -1,5 +1,4 @@
 class Array
-
   def to_param
     self.collect { |element| element.respond_to?(:to_param) ? element.to_param : element }
   end
@@ -13,11 +12,11 @@ class Array
     self.inject({}) do |h, element|
       if key
         h[element.send(key)] = if block_given?
-          yield(element)
-        elsif method
-          element.send(method)
-        else
-          element
+                                 yield(element)
+                               elsif method
+                                 element.send(method)
+                               else
+                                 element
         end
       else # key is block and value is element
         h[yield(element)] = element
@@ -31,7 +30,7 @@ class Array
   end
 
   def intersects?(other)
-    self.any?{|i| other.include?(i)}
+    self.any? { |i| other.include?(i) }
   end
 
   # Same effect as Array.wrap(object).first

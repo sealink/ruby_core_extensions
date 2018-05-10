@@ -14,4 +14,3 @@ describe File do
     File.safe_name(from)
   end
 end
-

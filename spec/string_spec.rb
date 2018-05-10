@@ -1,5 +1,4 @@
 describe String do
-
   it "should convert to underscore replacing spaces with underscores" do
     expect("CamelCase UPPERCASE to be_Converted".proper_underscore).to eq "camel_case_uppercase_to_be_converted"
   end
@@ -58,5 +57,4 @@ describe String do
 
     expect { 'a'.to_bool }.to raise_error(ArgumentError)
   end
-
 end
