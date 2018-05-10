@@ -1,0 +1,1 @@
+bundle exec rubocop --only Layout && bundle exec rspec
