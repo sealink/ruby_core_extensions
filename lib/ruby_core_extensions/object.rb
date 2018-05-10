@@ -1,12 +1,12 @@
 class Object
   # Does this object sound like another - phonetically?
   def sounds_like?(other)
-    self.phonetic_code == other.phonetic_code
+    phonetic_code == other.phonetic_code
   end
 
   # Convert this object into a string, then convert that to phonetic code
   def phonetic_code
-    self.to_s.phonetic_code
+    to_s.phonetic_code
   end
 
   def to_long_s
@@ -63,6 +63,6 @@ class Object
   end
 
   def to_bool
-    self.to_s.to_bool
+    to_s.to_bool
   end
 end

@@ -1,5 +1,5 @@
 class Hash
-  unless self.method_defined?(:extract!)
+  unless method_defined?(:extract!)
     # Imported from Rails 3
     def extract!(*keys)
       result = {}

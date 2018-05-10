@@ -1,7 +1,7 @@
 class Hash
   # Remove nil values
   def compact
-    self.dup.compact!
+    dup.compact!
   end
 
   # Remove nil values - !desctructively!
@@ -10,7 +10,7 @@ class Hash
   end
 
   def compact_blank
-    self.dup.compact_blank!
+    dup.compact_blank!
   end
 
   def compact_blank!

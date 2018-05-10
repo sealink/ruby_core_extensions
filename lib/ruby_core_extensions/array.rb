@@ -1,6 +1,6 @@
 class Array
   def to_param
-    self.collect { |element| element.respond_to?(:to_param) ? element.to_param : element }
+    collect { |element| element.respond_to?(:to_param) ? element.to_param : element }
   end
 
   def show_name
@@ -9,7 +9,7 @@ class Array
 
   # Key should be unique, or latest element with that key will override previous ones.
   def hash_by(key = nil, method = nil, &block)
-    self.inject({}) do |h, element|
+    inject({}) do |h, element|
       if key
         h[element.send(key)] = if block_given?
                                  yield(element)
@@ -30,7 +30,7 @@ class Array
   end
 
   def intersects?(other)
-    self.any? { |i| other.include?(i) }
+    any? { |i| other.include?(i) }
   end
 
   # Same effect as Array.wrap(object).first
