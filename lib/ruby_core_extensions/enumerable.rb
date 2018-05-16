@@ -1,5 +1,4 @@
 module Enumerable
-
   def map_methods(*methods)
     map do |object|
       methods.inject({}) do |h, method|
@@ -34,6 +33,4 @@ module Enumerable
       obj
     end
   end
-
 end
-

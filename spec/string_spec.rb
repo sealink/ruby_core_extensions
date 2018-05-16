@@ -1,7 +1,9 @@
 describe String do
 
   it "should convert to underscore replacing spaces with underscores" do
-    expect("CamelCase UPPERCASE to be_Converted".proper_underscore).to eq "camel_case_uppercase_to_be_converted"
+    expect("CamelCase UPPERCASE to be_Converted".proper_underscore).to eq(
+      "camel_case_uppercase_to_be_converted"
+    )
   end
 
   it 'should separate numbers and letters' do
