@@ -5,6 +5,10 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
 
+### Added
+
+- [TT-4020] Implemented Rubocop
+
 ## 0.0.1
 
 ### Added

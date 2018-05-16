@@ -9,4 +9,3 @@ class File
       gsub(/\-+/, '-') # limit - character to once
   end
 end
-

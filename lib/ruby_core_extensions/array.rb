@@ -1,5 +1,4 @@
 class Array
-
   def to_param
     self.collect { |element| element.respond_to?(:to_param) ? element.to_param : element }
   end
@@ -31,7 +30,7 @@ class Array
   end
 
   def intersects?(other)
-    self.any?{|i| other.include?(i)}
+    self.any? { |i| other.include?(i) }
   end
 
   # Same effect as Array.wrap(object).first

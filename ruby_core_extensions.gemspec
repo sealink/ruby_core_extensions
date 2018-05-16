@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ruby_core_extensions/version'
@@ -29,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov-rcov'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'travis'
+  spec.add_development_dependency 'rubocop-rails'
 end
