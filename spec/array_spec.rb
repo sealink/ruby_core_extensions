@@ -46,6 +46,12 @@ describe Array do
     expect([1, 2, 3].hash_by { |k| k * 2 }).to eq({ 2 => 1, 4 => 2, 6 => 3 })
   end
 
+  it "#hash_by_id" do
+    one = double(id: 1, name: 'One')
+    two = double(id: 2, name: 'Two')
+    expect([one, two].hash_by_id).to eq(1 => one, 2 => two)
+  end
+
   it "should allow executing blocks recursively" do
     array = [1, [2, 3], [4, [5, 6], 7, [8]], 9, [[10]]]
     result = []
