@@ -1,12 +1,4 @@
 class Array
-  def to_param
-    self.collect { |element| element.respond_to?(:to_param) ? element.to_param : element }
-  end
-
-  def show_name
-    first.titleize
-  end
-
   # Key should be unique, or latest element with that key will override previous ones.
   def hash_by(key = nil, method = nil, &block)
     self.inject({}) do |h, element|

@@ -8,6 +8,9 @@ This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).
 ### Added
 - [TT-4020] Implemented Rubocop
 
+### Removed
+- Remove no longer supported Array methods #to_param/#show_name
+
 ### Changed
 - stringify_values_recursively now just works on to_s for all objects
 
