@@ -1,14 +1,4 @@
 class Hash
-  unless self.method_defined?(:extract!)
-    # Imported from Rails 3
-    def extract!(*keys)
-      result = {}
-      keys.each { |key| result[key] = delete(key) }
-      result
-    end
-  end
-
-
   def map_key_value(key_method, value_method = nil)
     value_method ||= key_method
     each.with_object({}) do |(k, v), new_hash|
