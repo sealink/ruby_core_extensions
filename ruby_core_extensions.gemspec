@@ -20,15 +20,15 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'activesupport', '>= 5.0'
+  spec.add_dependency 'activesupport', '>= 6.0'
   spec.add_dependency 'tzinfo'
 
-  spec.add_development_dependency "bundler", "~> 2.0.1"
+  spec.add_development_dependency "bundler", "~> 2"
   spec.add_development_dependency "rake"
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'coverage-kit'
   spec.add_development_dependency 'simplecov-rcov'
   spec.add_development_dependency 'coveralls'
-  spec.add_development_dependency 'travis'
+  spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rubocop-rails'
 end
