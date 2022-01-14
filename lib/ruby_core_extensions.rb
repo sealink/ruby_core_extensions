@@ -1,8 +1,5 @@
 module RubyCoreExtensions
-  require 'active_support/version'
-  if ActiveSupport::VERSION::MAJOR > 2
-    require 'active_support/dependencies/autoload'
-  end
+  require "active_support"
   require 'active_support/core_ext'
 
   require 'ruby_core_extensions/array'
